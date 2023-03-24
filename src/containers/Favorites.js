@@ -1,12 +1,12 @@
 import React from "react";
-import { useContext } from "react";
 
+import { useStore } from "../hook-store/store";
 import FavoriteItem from "../components/Favorites/FavoriteItem";
 import { ProductContext } from "../context/product-context";
 import "./Products.css";
 
 const Favorites = (props) => {
-  const favoriteProducts = useContext(ProductContext).products.filter(
+  const favoriteProducts = useStore()[0].products.filter(
     (product) => product.isFavorite === true
   );
 
