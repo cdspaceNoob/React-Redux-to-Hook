@@ -25,6 +25,18 @@ const initialState = {
       title: 'Orange Hat',
       description: 'Street style! An orange hat.',
       isFavorite: false
+    },
+    {
+      id: 'p5',
+      title: 'Black Jacket',
+      description: 'A black jacket for winter.',
+      isFavorite: false
+    },
+    {
+      id: 'p6',
+      title: 'White Trousers',
+      description: 'A pair of white trousers.',
+      isFavorite: false
     }
   ]
 };
