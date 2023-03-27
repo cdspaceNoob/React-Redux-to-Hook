@@ -1,20 +1,26 @@
 import { initStore } from "./store";
 
-const configureStore = () => {
+const configureProductStore = () => {
+  console.log("configureProductStore called");
   const actions = {
     TOGGLE_FAV: (currentState, productId) => {
+      // 좋아요가 눌러진 상품의 인덱스를 찾는다.
       const productIndex = currentState.products.findIndex(
         (product) => product.id === productId
       );
+      // 좋아요가 눌러진 상품의 좋아요 상태를 반전시킨다.
       const newFavStatus = !currentState.products[productIndex].isFavorite;
+      // 상품 목록을 업데이트한다.
       const updatedProducts = [...currentState.products];
       updatedProducts[productIndex] = {
         ...currentState.products[productIndex],
         isFavorite: newFavStatus,
       };
+      // 좋아요의 새로운 상태가 반영된 상품 목록을 반환한다.
       return { products: updatedProducts };
     },
   };
+  // 초깃값을 설정한다.
   initStore(actions, {
     products: [
       {
@@ -69,4 +75,4 @@ const configureStore = () => {
   });
 };
 
-export default configureStore;
+export default configureProductStore;
